@@ -37,11 +37,9 @@ const source = [
 let filteredArray = source.filter((element) => element.courses.find((subElement) => subElement.id == 3));
 
 const selectedGuid = filteredArray[0].guid; 
-console.log(selectedGuid); 
+console.log(selectedGuid);  
+ 
+const courses = filteredArray.map(x=>x.courses)[0].filter(c=>c.id === 3)[0]; 
+console.log(courses);  
 
-const courses = filteredArray.map(x=>x.courses)[0]; 
-
-var selectedCourse = courses.filter(x=>x.id === 3);
-
-console.log(selectedCourse);
-appDiv.innerHTML = JSON.stringify(filteredArray, undefined, 2);
+appDiv.innerHTML = JSON.stringify(courses, undefined, 2);
